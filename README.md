@@ -1,5 +1,21 @@
 # AES Encryption with PyCrypto
 
+**Company**: CODETECH IT SOLUTIONS  
+
+**Name**  : KHUSHBOO KUMARI
+
+**Id**: CT08HQE
+
+**Domain**: CYBER SECURITY AND ETHICAL HACKING  
+
+**Batch Duration**: Dec 30th 2024 to Jan 30th, 2025 
+
+*Mentor Name**: NEELA SANTHOSH
+---
+
+
+
+
 This project demonstrates the implementation of AES encryption using the `pycrypto` library in Python. The core components of this project involve cryptographic techniques, including key generation, encryption, and decryption processes, aimed at securing data through strong encryption mechanisms.
 
 ## Overview
