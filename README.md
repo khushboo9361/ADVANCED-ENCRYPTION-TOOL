@@ -1,43 +1,94 @@
-# AES-Crptography-Final-Year-Project
-Top Class AES Encryption and Decryption Cryptography Project. B.tech Final year project for the College Students.  
+# AES Encryption with PyCrypto
 
-AES is very secure — virtually unbreakable
+This project demonstrates the implementation of AES encryption using the `pycrypto` library in Python. The core components of this project involve cryptographic techniques, including key generation, encryption, and decryption processes, aimed at securing data through strong encryption mechanisms.
 
-The AES algorithm (also known as the Rijndael algorithm) is a symmetrical block cipher algorithm that takes plain text in blocks of 128 bits and converts them to ciphertext using keys of 128, 192, and 256 bits. Since the AES algorithm is considered secure, it is in the worldwide standard.
+## Overview
 
-AES algorithm uses a 128-bit symmetric, or single-key, block cipher that encrypts and decrypts information. The AES encryption process creates ciphertext, which is an unreadable, effectively indecipherable conversion of plaintext data, the version of information that humans can read and understand. The output of the encryption process, the AES ciphertext, cannot be read until a secret AES key is used to decrypt it.
+This project provides a Python implementation of AES (Advanced Encryption Standard) encryption using the `pycrypto` library. The key aspects of the project include:
+- **AES Encryption**: The main focus of the project is to demonstrate AES encryption with a 256-bit key and 128-bit IV (Initialization Vector).
+- **Key Management**: The project showcases how to generate secure keys and IVs.
+- **Salt Generation**: A random salt is used to enhance the security of the encryption process.
+- **AES Mode**: It uses the AES algorithm in CBC (Cipher Block Chaining) mode for encryption.
+  
+## Features
 
+- **Key Generation**: Utilizes a 256-bit AES key with a 128-bit IV for encryption.
+- **Encryption/Decryption**: Supports both the encryption and decryption of files or messages.
+- **Salt Handling**: Secure random salt is used to strengthen the encryption.
+- **File Security**: The encryption process can be applied to both small data and files.
+  
+## Requirements
 
+- Python 3.x
+- pycrypto library: `pip install pycrypto`
+- hashlib (for creating hash-based keys)
+- os (for handling random operations)
 
-### Youtube Explanation of Project : https://youtu.be/KAmrEceJllM
+## Installation
 
+Clone the repository:
 
+```bash
+git clone https://github.com/yourusername/pycrypto-aes-encryption.git
+cd pycrypto-aes-encryption
+```
 
+Install dependencies:
 
+```bash
+pip install pycrypto
+```
 
-<h1 align="center"> नमस्ते (Namaste) 🙏🏻 , I'm Shivam Vatshayan <img src="https://raw.githubusercontent.com/ABSphreak/ABSphreak/master/gifs/Hi.gif" width="30px"> ! </h1>
-<h3 align="center">I'm a Developer from India ❤</h3>
+## Usage
 
-**You Can use this Beautiful Project for your college Project and get good marks too.**
+Once the dependencies are installed, you can use the provided methods to encrypt and decrypt messages or files.
 
-### WANT RESEARCH PAPER
- Email me at **vatshayan007@gmail.com** to get PDF of Research paper.
- 
-### Need Code, Documents & Explanation video ? 
+### Encrypting Data
 
-## How to Reach me :
+To encrypt data, run the following script:
 
-### Mail : vatshayan007@gmail.com 
+```python
+from Crypto.Cipher import AES
+import os
+import hashlib
 
-### WhatsApp: **+91 9310631437** (Helping 24*7) **[CHAT](https://wa.me/message/CHWN2AHCPMAZK1)** 
+# AES Encryption parameters
+IV_SIZE = 16
+KEY_SIZE = 32
+SALT_SIZE = 16
 
-### Website : https://www.finalproject.in/
+def encrypt(data, key):
+    cipher = AES.new(key, AES.MODE_CBC, iv=os.urandom(IV_SIZE))
+    return cipher.encrypt(data)
 
-### 1000 Computer Science Projects : https://www.computer-science-project.in/
+# Example usage
+key = os.urandom(KEY_SIZE)  # Generate a random key
+data = b"Your data to encrypt"
+encrypted_data = encrypt(data, key)
+```
 
-Mail/Message me for Projects Help 🙏🏻
+### Decrypting Data
 
-**Other new Final Year Project on Security you may like : [LINK](https://github.com/Vatshayan/Image-Security-by-Triple-DES-Final-Year-Project)**
+To decrypt the encrypted data:
 
-### Youtube Explanation of Project : https://youtu.be/KAmrEceJllM
+```python
+def decrypt(encrypted_data, key):
+    cipher = AES.new(key, AES.MODE_CBC, iv=os.urandom(IV_SIZE))
+    return cipher.decrypt(encrypted_data)
 
+# Example usage
+decrypted_data = decrypt(encrypted_data, key)
+```
+
+## Project Structure
+
+- `README.md`: This file.
+- `encryption.py`: Main encryption/decryption logic.
+- `utils.py`: Utility functions for key generation, salt, etc.
+- `example.py`: Example usage of encryption and decryption.
+
+## Contributions
+
+Feel free to fork this repository and create pull requests. Contributions are welcome!
+
+--- 
